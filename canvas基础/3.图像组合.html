@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图像组合</title>
+    <style type="text/css">
+        body {
+          margin: 0;
+        }
+
+        canvas {
+            box-shadow: 0 0 10px #333;
+        }
+    </style>
+</head>
+
+<body onload="draw()">
+
+    <canvas id="canvas1" width="300" height="300"></canvas>
+    <canvas id="canvas2" width="300" height="300"></canvas>
+    <canvas id="canvas3" width="300" height="300"></canvas>
+    <canvas id="canvas4" width="300" height="300"></canvas>
+    <script>
+        function draw() {
+            /** @type {HTMLCanvasElement} */
+            var canvas1 = document.getElementById('canvas1');
+            if (canvas1.getContext) {
+                // canvas.getContext,获取上下文， ctx就是画笔 有这个属性，说明浏览器支持，然后写代码
+                var ctx1 = canvas1.getContext('2d');
+
+                ctx1.beginPath();
+                ctx1.fillStyle = 'red';
+                ctx1.fillRect(50,50,100,100);
+
+                ctx1.globalCompositeOperation = 'source-over';
+
+                ctx1.fillStyle = 'green';
+                ctx1.arc(150,150,50,0,2 * Math.PI)
+                ctx1.fill();
+            }
+
+            var canvas2 = document.getElementById('canvas2');
+            if (canvas2.getContext) {
+                // canvas.getContext,获取上下文， ctx就是画笔 有这个属性，说明浏览器支持，然后写代码
+                var ctx2 = canvas2.getContext('2d');
+
+                ctx2.beginPath();
+                ctx2.fillStyle = 'red';
+                ctx2.fillRect(50,50,100,100);
+
+                ctx2.globalCompositeOperation = 'source-over';
+
+                ctx2.fillStyle = 'green';
+                ctx2.arc(150,150,50,0,2 * Math.PI)
+                ctx2.fill();
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>涂鸦</title>
+    <style type="text/css">
+        body {
+            text-align: center;
+            padding-top: 20px;
+        }
+
+        canvas {
+            box-shadow: 0 0 10px #333;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body onload="draw()">
+    <canvas height="600" width="800" id="myCanvas"></canvas>
+    <script>
+        function draw() {
+            /** @type {HTMLCanvasElement} */
+            var canvas = document.getElementById('myCanvas');
+            if (canvas.getContext) {
+                // canvas.getContext,获取上下文， ctx就是画笔 有这个属性，说明浏览器支持，然后写代码
+                var ctx = canvas.getContext('2d');
+                /* 
+                15. 添加事件，涂鸦
+                 */
+                canvas.onmousedown = function (e) {
+                    var ev = e || window.event;
+                    // ev.clientX 鼠标点击位于客户端界面的位置； canvas.offsetLeft是canvas 的偏移位置。
+                    var x = ev.clientX - canvas.offsetLeft;
+                    var y = ev.clientY - canvas.offsetTop;
+                    console.log(x, y);
+
+                    ctx.strokeStyle = 'green';
+                    ctx.lineWidth = 10;
+
+                    //开辟一个路线开始画画
+
+                    ctx.beginPath();
+                    ctx.moveTo(x, y);
+
+                    //鼠标按下并且移动
+                    canvas.onmousemove = function (e) {
+                        var ev = e || window.event;
+                        var x = ev.clientX - canvas.offsetLeft;
+                        var y = ev.clientY - canvas.offsetTop;
+
+                        ctx.lineTo(x, y);
+                        ctx.stroke();
+                    }
+
+                }
+                //   鼠标松开
+                canvas.onmouseup = function () {
+                    canvas.onmousemove = '';
+                }
+
+            }
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        body {
+            text-align: center;
+            padding-top: 20px;
+        }
+
+        canvas {
+            box-shadow: 0 0 10px #333;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body onload="draw()">
+    <canvas id="myCanvas" width="800" height="600">
+        <!-- 如果浏览器不支持canvas，才能看到下面你的文字 -->
+        您的浏览器版本太低，请更新至最新版本，建议使用Google Chrome。
+    </canvas>
+    <script>
+        function draw() {
+            /** @type {HTMLCanvasElement} */
+            var canvas = document.getElementById('myCanvas');
+            if (canvas.getContext) {
+                // canvas.getContext,获取上下文， ctx就是画笔 有这个属性，说明浏览器支持，然后写代码
+                var ctx = canvas.getContext('2d');
+
+
+                /* 
+                1. 画矩形
+                 */
+                // ctx.fillStyle = 'rgb(200,0,0)';
+                // ctx.fillRect(10,10,350,300);
+
+                // ctx.fillStyle = 'rgba(0,0,200,0.5)';
+                // ctx.fillRect(30,30,350,300);
+
+
+                /* 
+                2. 画矩形框，描边矩形
+                */
+                // ctx.strokeStyle = 'rgb(200,0,0)';
+                // ctx.strokeRect(10,10,350,300);
+
+                // ctx.strokeStyle = 'rgba(0,0,200,0.5)';
+                // ctx.strokeRect(30,30,350,300);
+
+
+                /* 
+                3. 清除矩形范围
+                */
+                // ctx.fillRect(25, 25, 100, 100);
+                // ctx.clearRect(45, 45, 60, 60);
+                // ctx.strokeRect(50, 50, 50, 50);
+
+                /* 
+                4. 画线，路径
+                */
+                // ctx.beginPath();
+                // //起始1点x=75, y=50
+                // ctx.moveTo(75,50);
+                // // 2点 x=100, y=50
+                // ctx.lineTo(100,75);
+                // // 3点 x=100, y=25
+                // ctx.lineTo(100,25);
+                // //回到点1
+                // // ctx.lineTo(75,50);
+                // // 填充
+                // // ctx.fill();
+                // //描边
+                // ctx.closePath();
+                // ctx.stroke();
+
+                /* 
+                5. 画两个三角形
+                */
+                // //填充三角形
+                // ctx.beginPath();
+                // ctx.moveTo(25,25);
+                // ctx.lineTo(105,25);
+                // ctx.lineTo(25,105);
+                // ctx.fill();
+
+                // //描边三角形
+                // ctx.beginPath();
+                // ctx.moveTo(125,125);
+                // ctx.lineTo(125,45);
+                // ctx.lineTo(45,125);
+                // ctx.closePath();
+                // ctx.stroke();
+
+
+                /* 
+                6. 画圆：圆心(x,y), 半径, 开始角度，结束角度， 顺时针/逆时针 
+                 */
+
+                // ctx.strokeStyle = 'orange';
+                // ctx.lineWidth = 10;
+                // ctx.arc(400, 300, 300, 0, Math.PI * 1.5, false); 
+                // ctx.stroke();
+
+                /* 
+                7. 画各种半圆，圆弧
+                 */
+                // ctx.beginPath();
+                // ctx.arc(25, 25, 20, 0, Math.PI / 180 * 90, false);
+                // ctx.stroke();
+
+                // ctx.beginPath();
+                // ctx.arc(75, 25, 20, 0, Math.PI / 180 * 180, false);
+                // ctx.stroke();
+
+                // ctx.beginPath();
+                // ctx.arc(125, 25, 20, 0, Math.PI / 180 * 270, false);
+                // ctx.stroke();
+
+                // ctx.beginPath();
+                // ctx.arc(175, 25, 20, 0, Math.PI / 180 * 360, false);
+                // ctx.stroke();
+
+
+                /* 
+                8.画笑脸，使用moveTo(x,y)移动画笔
+                 */
+
+                //  ctx.arc(200, 200, 100, 0, Math.PI * 2, false);
+                //  ctx.moveTo(175, 175);
+                //  ctx.arc(165, 175, 10, 0, Math.PI *2, false)
+                //  ctx.moveTo(245, 175);
+                //  ctx.arc(235, 175, 10, 0, Math.PI *2, false)
+                //  ctx.moveTo(270, 200);
+                //  ctx.arc(200, 200, 70, 0, Math.PI, false)
+                //  ctx.stroke();
+
+                /* 
+                9.线性渐变
+                 */
+
+                //  var lingrad = ctx.createLinearGradient(0, 0, 0, 150);
+                //  lingrad.addColorStop(0, '#cc6677');
+                //  lingrad.addColorStop(0.5, '#fff');
+                //  lingrad.addColorStop(0.5, '#c6c7c6');
+
+                //  var lingrad2 = ctx.createLinearGradient(0,50,0,90);
+                //  lingrad2.addColorStop(0.5,'#000');
+                //  lingrad2.addColorStop(1,'rgba(0,0,0,0)');
+
+                //  ctx.fillStyle = lingrad;
+                //  ctx.fillRect(10,10,130,130)
+
+                //  ctx.strokeRect(50,50,50,50);
+                //  ctx.strokeStyle = lingrad2;
+
+
+                /* 
+                10.径向渐变
+                */
+                //    var radgrad = ctx.createRadialGradient(45, 45, 10, 50, 52, 30);
+                //    radgrad.addColorStop(0, '#a7d30c');
+                //    radgrad.addColorStop(0.9, '#019f62');
+                //    radgrad.addColorStop(1, 'rgba(1,159,98,0)');
+                //    ctx.fillStyle = radgrad;
+                //    ctx.fillRect(0,0,150,150);
+
+                //    var radgrad2 = ctx.createRadialGradient(105, 105, 20, 112, 120, 50);
+                //    radgrad2.addColorStop(0, '#ff5f98');
+                //    radgrad2.addColorStop(0.9, '#ff0188');
+                //    radgrad2.addColorStop(1, 'rgba(255,1,136,0)');
+                //    ctx.fillStyle = radgrad2;
+                //    ctx.fillRect(0,0,150,150);
+
+                /* 
+                11.引入图片
+                */
+
+                // var img = new Image();
+                // img.src = './src/img.jpg';
+                // img.onload = function(){
+                //     var ptrn = ctx.createPattern(img,'no-repeat');
+                //     ctx.fillStyle = ptrn;
+                //     ctx.fillRect(0,0,800,600);
+                // }
+
+                /* 
+                12.绘制文字
+                */
+                // var lingrad = ctx.createLinearGradient(100, 200, 500, 200);
+                // lingrad.addColorStop(0.5, '#cc6677');
+                // lingrad.addColorStop(1, '#000');
+                // ctx.shadowColor = 'Orange';
+                // ctx.shadowBlur = 10;
+                // ctx.shadowOffsetX = 20;
+                // ctx.shadowOffsetY = 20;
+                // ctx.font = 'bold oblique 160px arial';
+
+                // ctx.fillStyle = lingrad;
+                // ctx.fillText('hello1', 100, 200);
+                
+                /* 
+                13. 绘制图片，常见使用
+                */
+
+                // var img = new Image();
+                // img.src = './src/img.jpg';
+
+                // img.onload = function(){
+                //     ctx.drawImage(this,0,0,626,550);
+                //     ctx.drawImage(this,0,0,100,100,0,0,100,100);
+                // }
+
+
+                /* 
+                14.图片修剪
+                 */
+
+                //  var img = new Image();
+                //  img.src = './src/img.jpg';
+                //  img.onload = function() {
+                //     // ctx.drawImage(this,0,0,626,550);
+                //     ctx.beginPath();
+                //      ctx.arc(400,300,150,0,Math.PI*2,false);
+                //      ctx.fill();
+                //      ctx.clip();
+                //      ctx.drawImage(this,0,0);
+                //  }
+                
+
+                 /* 
+                 15. 添加事件，涂鸦
+                  */
+
+                //   canvas.onmousedown = function(e){
+                //       var ev = e || window.event;
+                //       // ev.clientX 鼠标点击位于客户端界面的位置； canvas.offsetLeft是canvas 的偏移位置。
+                //       var x = ev.clientX - canvas.offsetLeft;
+                //       var y = ev.clientY - canvas.offsetTop;
+                //       console.log(x,y);
+
+                //       ctx.strokeStyle = 'green';
+                //       ctx.lineWidth = 10;
+
+                //       //开辟一个路线开始画画
+
+                //       ctx.beginPath();
+                //       ctx.moveTo(x,y);
+                      
+                //       //鼠标按下并且移动
+                //       canvas.onmousemove = function(e){
+                //           var ev = e || window.event;
+                //           var x = ev.clientX - canvas.offsetLeft;
+                //           var y = ev.clientY - canvas.offsetTop;
+
+                //           ctx.lineTo(x,y);
+                //           ctx.stroke();
+                //       }
+
+                //     }
+                //     //   鼠标松开
+                //     canvas.onmouseup = function(){
+                //         canvas.onmousemove = '';
+                //     }
+
+                /* 
+                16. 刮刮卡
+                */
+
+
+            }
+        }
+
+    </script>
+</body>
+
+</html>

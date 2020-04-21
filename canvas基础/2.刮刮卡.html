@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>刮刮卡</title>
+    <style type="text/css">
+        body {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        .box{
+            width: 800px;
+            height: 600px;
+            position: relative;
+            user-select: none;
+        }
+        .box img{
+            width: 100%;
+            height: 100%;
+        }
+        canvas {
+            box-shadow: 0 0 10px #333;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body onload="draw()">
+
+    <div class="box" id="box">
+        <img src="./src/img.jpg">
+        <canvas id="myCanvas" width="800" height="600"></canvas>
+    </div>
+    <script>
+        function draw() {
+            /** @type {HTMLCanvasElement} */
+            var canvas = document.getElementById('myCanvas');
+            var box = document.getElementById('box');
+            if (canvas.getContext) {
+                // canvas.getContext,获取上下文， ctx就是画笔 有这个属性，说明浏览器支持，然后写代码
+                var ctx = canvas.getContext('2d');
+
+                //将图片用灰色盖住
+                ctx.beginPath();
+                ctx.fillStyle = 'rgba(99,99,99,1)';
+                ctx.fillRect(0,0,canvas.width,canvas.height);
+                
+                ctx.globalCompositeOperation = 'destination-out';
+                ctx.lineWidth = 40;
+                ctx.lineCap = 'round';
+
+                canvas.onmousedown = function (e){
+                    var ev = e || window.event;
+                    // ev.clientX 鼠标点击位于客户端界面的位置； canvas.offsetLeft是canvas 的偏移位置。
+                    var x = ev.clientX - canvas.offsetLeft;
+                    var y = ev.clientY - canvas.offsetTop;
+
+                    ctx.moveTo(x, y);
+                    //鼠标按下并且移动
+                    canvas.onmousemove = function (e) {
+                        var ev = e || window.event;
+                        var x = ev.clientX - canvas.offsetLeft;
+                        var y = ev.clientY - canvas.offsetTop;
+                        ctx.lineTo(x, y);
+                        ctx.stroke();
+                    }
+
+                    canvas.onmouseup = function(){
+                        canvas.onmousemove = '';
+                    }
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>

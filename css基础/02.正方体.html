@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>正方体</title>
+  <style>
+    .view{
+      width: 500px;
+      height: 500px;
+      border: 1px solid #aaa;
+      margin: 50px auto;
+      position: relative;
+      perspective: 400px;
+    }
+    .view .box{
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -100px;
+      margin-left: -100px;
+      transition: 5s;
+      transform-style: preserve-3d;
+    }
+    .view:hover .box{
+      transform: rotateY(360deg);
+    }
+    .box .item{
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      text-align: center;
+      font: 100px/200px '宋体';
+      top: 0;
+      left: 0;
+      opacity: 0.5;
+      transform-origin: center center;
+    }
+
+    .box .item:nth-child(1){
+      background: red;
+      /* transform两个参数，后面的先执行 */
+      transform: rotateX(-90deg) translateZ(-100px);
+    }
+    .box .item:nth-child(2){
+      background: blue;
+      transform: rotateY(90deg) translateZ(100px);
+    }
+    .box .item:nth-child(3){
+      background: yellow;
+      transform: rotateY(180deg) translateZ(100px);
+    }
+    .box .item:nth-child(4){
+      background: green;
+      transform: rotateY(270deg) translateZ(100px);
+    }
+    .box .item:nth-child(5){
+      background: blueviolet;
+      transform: rotateY(360deg) translateZ(100px);
+    }
+    .box .item:nth-child(6){
+      background: palevioletred;
+      transform: rotateX(90deg) translateZ(-100px);
+    }
+  </style>
+</head>
+<body>
+  <p>此demo，主要用常规思维来画一个立方体，是常规的做法，稍微难，好好理解
+    transform: rotateX(90deg) translateZ(100px);，transform两个参数的时候，后面的先执行，
+    translate平移，不影响源点的位置。rotate旋转会受到到源点的影响。所有相当于translateZ，先把元素抬起来100px，
+    然后再rotateX，此时的源点位于平移前的位置，不再位移后的图像上，所以旋转也是基于源点，感觉就是圆规的感觉，源点就是圆心，而
+    rotateX就是在画弧
+  </p>
+
+  <div class="view">
+    <div class="box">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+      <div class="item">6</div>
+    </div>
+  </div>
+
+</body>
+</html>

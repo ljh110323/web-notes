@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>过渡transition</title>
+    <style>
+        pre{
+            background-color: beige;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>过渡transition</h1>
+    <h2>属性：</h2>
+    <ul>
+        <li>transition-property: 具体css属性名称 | all | none，默认值all。</li>
+        <li>transition-duration: 必须要有，不然默认是0s动画不执行。过渡效果完成需要花费的时间，默认0s，单位可以是 s | ms</li>
+        <li>transition-timing-function: 速度效果的速度曲线，默认：ease，取值如下：
+            <ul>
+                <li>linear：规定以相同速度开始至结束的过渡效果（等于 cubic-bezier(0,0,1,1)）。</li>
+                <li>ease：规定慢速开始，然后变快，然后慢速结束的过渡效果（cubic-bezier(0.25,0.1,0.25,1)）。</li>
+                <li>ease-in：规定以慢速开始的过渡效果（等于 cubic-bezier(0.42,0,1,1)）。</li>
+                <li>ease-out：规定以慢速结束的过渡效果（等于 cubic-bezier(0,0,0.58,1)）。</li>
+                <li>ease-in-out：规定以慢速开始和结束的过渡效果（等于 cubic-bezier(0.42,0,0.58,1)）。</li>
+                <li>cubic-bezier(n,n,n,n)：在 cubic-bezier 函数中定义自己的值。可能的值是 0 至 1 之间的数值。</li>
+                <li>关于cubic-bezier推荐的网址：https://easings.net/</li>
+            </ul>
+        </li>
+        <li>transition-delay：规定过渡效果何时开始，默认0，取值：ms | s</li>
+    </ul>
+    <p>根据默认取值: 一般情况下设置一个 过渡时间就可以了。</p>
+    <pre>
+        <code>
+            transition: 1s;
+        </code>
+    </pre>
+</body>
+
+</html>

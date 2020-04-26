@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 400px;
+            height: 400px;
+            border: 1px solid #aaa;
+            position: relative;
+            margin: 50px auto;
+            perspective: 400px
+        }
+        .box .item{
+            width: 100px;
+            height: 200px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -100px;
+            margin-left: -50px;
+            border: 1px solid #aaa;
+            transition: 1s;
+        }
+        .box .item:nth-child(1){
+            background: red;
+            transform: rotate(60deg);
+        }
+        .box .item:nth-child(2){
+            background: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">   
+        <div class="item" id="item1"></div>
+        <div class="item"  id="item2" style="transform: rotate(45deg);"></div>
+    </div>
+    <script>
+        (function(){
+            let div1 = document.querySelector('#item1');
+            let div2 = document.querySelector('#item2');
+
+            /* 
+            如果想通过js,来操作获取css 的transform效果，通过普通的方式无法获取，只能使用运动框架或者直接在div上写行内样式，才可以获取到，
+             */
+            console.log(div1.style.transform); // 什么也没有，
+
+            console.log(getComputedStyle(div1)['transform']); //matrix(0.5, 0.866025, -0.866025, 0.5, 0, 0)
+
+
+            console.log(div2.style.transform); // rotate(45deg)
+
+            console.log(getComputedStyle(div2)['transform']); //matrix(0.707107, 0.707107, -0.707107, 0.707107, 0, 0)
+            
+            
+        })();
+    </script>
+</body>
+</html>

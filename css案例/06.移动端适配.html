@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>Document</title>
+    <style>
+        #view{
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+        #disZ, #translateZ{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform-style: preserve-3d;
+        }
+        #box3D{
+            width: 640px;
+            height: 640px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -320px 0 0 -320px;
+            transform-style: preserve-3d;
+            background: url('./src/images/demo.jpg');
+        }
+    </style>
+</head>
+<body>
+        <div id="view">
+            <div id="disZ">
+                <div id="translateZ">
+                    <div id="box3D"></div>
+                </div>
+            </div>
+        </div>
+
+    <script>
+        document.addEventListener('touchstart',function(e){
+            e.preventDefault();
+        },{
+            passive:false
+        });
+
+
+        (function(){
+            //固定视野夹角。固定景物距离，那么看到的画面大小一定是固定的。
+            //固定一个视野角度，本例子是为了让用户看到的永远是一个景深的画面
+
+            //view 控制的是景深，这里是屏幕到眼睛的距离
+            let view = document.querySelector('#view');
+            //disZ控制的是屏幕到眼睛的距离
+            let disZ = document.querySelector('#disZ');
+
+            //translateZ 控制的是画面你的Z轴偏移，取负数，就是真实的展现出来的样子
+            let translateZ = document.querySelector('#translateZ');
+
+            //夹角
+            let deg = 52;
+            setZ();
+            translateZ.style.transform = `translateZ(-300px)`;
+            window.addEventListener('resize',setZ);
+            function setZ(){
+                let h = window.innerHeight;
+                let R = Math.tan(Math.PI/180*deg) * h/2;
+                //设置景深
+                view.style.perspective = R + 'px';
+                disZ.style.transform = `translateZ(${R}px)`;
+            }
+
+            //touchstart 手指按下支持多个手指
+            //touchmove 手指移动
+            //touchend 手指抬起
+            window.addEventListener('touchstart',function(e){
+                console.log(e.changedTouches[0].pageX);
+            })
+
+            window.addEventListener('touchmove',function(e){
+                console.log(e.changedTouches[0].pageX); 
+            })
+
+            window.addEventListener('touchend',function(e){
+                console.log(e.changedTouches[0].pageX);
+            })
+
+        })();
+    </script>
+</body>
+</html>

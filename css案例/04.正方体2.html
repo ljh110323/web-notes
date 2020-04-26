@@ -37,32 +37,33 @@
       left: 0;
       opacity: 0.5;
       transform-origin: center center;
+      backface-visibility: hidden;
     }
 
     .box .item:nth-child(1){
       background: red;
       /* transform两个参数，后面的先执行 */
-      transform: rotateX(-90deg) translateZ(-100px);
+      transform: rotateY(0deg) translateZ(100px);
     }
     .box .item:nth-child(2){
       background: blue;
-      transform: rotateY(90deg) translateZ(100px);
+      transform: rotateY(-90deg) translateZ(100px);
     }
     .box .item:nth-child(3){
       background: yellow;
-      transform: rotateY(180deg) translateZ(100px);
+      transform: rotateY(-180deg) translateZ(100px);
     }
     .box .item:nth-child(4){
       background: green;
-      transform: rotateY(270deg) translateZ(100px);
+      transform: rotateY(-270deg) translateZ(100px);
     }
     .box .item:nth-child(5){
       background: blueviolet;
-      transform: rotateY(360deg) translateZ(100px);
+      transform: rotateX(-90deg) translateZ(100px);
     }
     .box .item:nth-child(6){
       background: palevioletred;
-      transform: rotateX(90deg) translateZ(-100px);
+      transform: rotateX(90deg) translateZ(100px);
     }
   </style>
 </head>

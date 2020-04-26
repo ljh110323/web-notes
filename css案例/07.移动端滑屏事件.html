@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>移动端滑屏</title>
+    <style> 
+        .view{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .view ul{
+            position: absolute;
+            left: 0;
+            top: 0;
+            margin: 0;
+            padding: 0;
+            width: 1000px;
+        }
+        .view ul li{
+            float: left;
+            box-sizing: border-box;
+            width: 100px;
+            height: 100%;
+            border: 1px solid #aaa;
+            font: 50px/200px "宋体";
+            text-align: center;
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="view">
+        <ul id="list">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+            <li>10</li>
+        </ul>
+    </div>
+
+    <script>
+        (function(){
+            var list = document.querySelector('#list');
+
+            //点击开始的的位置，用来计算手指滑动的偏移量
+            var pointX = 0;
+            //left改变前元素的left位移量
+            var currentLeft = 0;
+
+            window.addEventListener('touchstart',function(e){
+                pointX = e.changedTouches[0].pageX;
+                //获取到的是字符串，需要转换成Number格式，使用parseFloat或者 + 转换类型
+                // currentLeft = parseFloat( (getComputedStyle(list).left).split('px')[0] );
+                currentLeft = + ( (getComputedStyle(list).left).split('px')[0] );
+            });
+            window.addEventListener('touchmove',function(e){
+                pointXMove = e.changedTouches[0].pageX - pointX;
+                list.style.left = (pointXMove + currentLeft) + 'px';
+            });
+        })()
+    </script>
+</body>
+</html>

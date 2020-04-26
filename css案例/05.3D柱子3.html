@@ -3,89 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D柱子</title>
-    <style id="style">
-        .view{
-            position: absolute;
-            width: 48px;
-            height: 540px;
-            border: 1px solid #aaa;
-            top: 50%;
-            left: 50%;
-            margin-top: -270px; 
-            margin-left: -24px;
-            perspective: 1800px;
-        }
+    <title>Document</title>
+    <style>
         .box{
-            width: 100%;
-            height: 100%;
+            width: 400px;
+            height: 400px;
+            border: 1px solid #aaa;
             position: relative;
-            transform-style: preserve-3d;
-            transition: 8s;
-            transform: rotateY(180deg);
+            margin: 50px auto;
+            perspective: 400px
         }
         .box .item{
+            width: 100px;
+            height: 200px;
             position: absolute;
-            top: 0;
-            left: 0;
-            backface-visibility: hidden;
-            /* opacity: 0.5; */
+            top: 50%;
+            left: 50%;
+            margin-top: -100px;
+            margin-left: -50px;
+            border: 1px solid #aaa;
+            transition: 1s;
         }
-        .box:hover{
-            transform: rotateY(-360deg);
+        .box .item:nth-child(1){
+            background: red;
         }
-        /* .box .item:nth-child(1){
-            width: 100%;
-            height: 100%;
-            background: url('./src/images/05/1.jpeg');
-            background-size: cover; 
-            transform: rotateY(0deg) translateZ(41.56px);
-        } */
-
+        .box .item:nth-child(2){
+            background: yellow;
+        }
+        .box:hover .item:nth-child(2){
+            /* transform-origin: center center 100px; */
+            transform: rotateY(360deg) translateZ(100px);
+        }
+        
     </style>
 </head>
 <body>
-    <div class="view">
-        <div class="box">
-            <!-- <div class="item"></div> -->
-        </div>
+    <div class="box">   
+        <div class="item"></div>
+        <div class="item"></div>
     </div>
 </body>
-<script>
-    window.onload = function(){
-
-        //视窗大小
-        const viewWidth = 500
-
-        const Num = 20;
-
-        const box = document.querySelector('.box');
-        const style = document.querySelector('#style');
-        let items = '';
-        let styles = '';
-
-        let out_deg = 360 / Num; //外角
-        let in_half_deg = (180 - out_deg) / 2; //内角的一半
-        let rad = (Math.PI / 180) *  in_half_deg;
-        let r = (48 / 2) * Math.tan(rad);
-        console.log(r);
-         
-        for(let i = 1; i <= Num; i++){
-            items += `<div class="item">${i}</div>`;
-            styles += `
-        .box .item:nth-child(${i}){
-            width: 100%;
-            height: 100%;
-            background: url('./src/images/05/${i}.jpeg');
-            background-size: cover; 
-            transform: rotateY(-${0 + out_deg*(i-1)}deg) translateZ(-${r}px);
-        }
-            `;
-        }
-        box.innerHTML = items;
-        style.innerHTML += styles;
-    }
-
-    
-</script>
-</html> 
+</html>

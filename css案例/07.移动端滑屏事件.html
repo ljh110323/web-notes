@@ -61,12 +61,19 @@
                 pointX = e.changedTouches[0].pageX;
                 //获取到的是字符串，需要转换成Number格式，使用parseFloat或者 + 转换类型
                 // currentLeft = parseFloat( (getComputedStyle(list).left).split('px')[0] );
-                currentLeft = + ( (getComputedStyle(list).left).split('px')[0] );
+                currentLeft = + ( (getComputedStyle(list).left).split('px')[0] ); 
             });
             window.addEventListener('touchmove',function(e){
                 pointXMove = e.changedTouches[0].pageX - pointX;
                 list.style.left = (pointXMove + currentLeft) + 'px';
             });
+
+            /* 
+            要点:
+            1. 手指按下的时候获取当前的按下位置和元素的左右偏移量
+            2. 手指滑动的时候，获取手指的偏移量,
+            3. 元素的偏移量 = 以前的偏移量 + (手指滑动的位置-手指按下的位置)； 如果值为正数表示向右，为负数，表示向左。
+              */
         })()
     </script>
 </body>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>手机陀螺仪检测</title>
+    <style>
+        #view {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        #box {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            background: red;
+            font: 20px/1.5 "宋体";
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div id="view">
+        <div id="box"></div>
+    </div>
+
+    <script>
+        (function(){
+
+            //谷歌浏览器，打开控制台-->最右边隐藏下拉菜单里面-->Sensors--> Orientation --> Custom orientation; 调整alpha,beta,gamma
+            var box = document.querySelector('#box');
+            window.addEventListener('deviceorientation',function(e){
+                console.log(e);
+                // 跟陀螺仪有关的是 alpha, beta, gamma.
+                box.innerHTML = `x轴旋转：${e.beta}; <br/> y轴旋转：${e.gamma}; <br/> z轴旋转：${e.alpha};`;
+            })
+        })();
+    </script>
+</body>
+</html>

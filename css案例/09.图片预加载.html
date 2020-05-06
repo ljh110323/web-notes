@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片预加载</title>
+</head>
+<body>
+    <p>
+        页面还没渲染完成，先去加载图片。
+    </p>
+
+    <script>
+        (function(){
+            var nub = 0;
+            data.forEach(element => {
+                let img = new Image();
+                img.src = './src/images/05/1.jpeg';
+                img.onload = function(){
+                    // 在这里去统计次数
+                    nub ++;
+                    console.log( (nub / data.length * 100 ).toFixed(0) + '%' );
+                    // 这里就是进度条了
+                    // 可以根据图片加载的数量给用户提示
+                }
+            });
+        })()
+    </script>
+</body>
+</html>

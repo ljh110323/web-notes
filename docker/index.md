@@ -1184,7 +1184,7 @@ ip addr
 
 docker run创建docker容器时，可以用-net选项指定容器的网络模式，docker有以下4种网络模式：
 
-* bridge 侨连模式：使 --net=bridge指定，`默认设置`
+* bridge 模式：使 --net=bridge指定，`默认设置`
 
 * host模式：使 --net=host指定
 
@@ -1197,6 +1197,14 @@ docker run创建docker容器时，可以用-net选项指定容器的网络模式
 ![image-20200511185523974](assets/image-20200511185523974.png)
 
 ![image-20200511185610999](assets/image-20200511185610999.png)
+
+![image-20200512105744365](assets/image-20200512105744365.png)
+
+![image-20200512110920859](assets/image-20200512110920859.png)
+
+![image-20200512110944345](assets/image-20200512110944345.png)
+
+![image-20200512111033625](assets/image-20200512111033625.png)
 
 
 

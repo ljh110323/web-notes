@@ -1,0 +1,24 @@
+{
+  "options": {
+    "paths": {
+      "root": "./",
+      "fonts": "fonts",
+      "styles": "styles",
+      "mbtiles": "data"
+    }
+  },
+  "domains": [
+    "localhost:8080",
+    "127.0.0.1:8080"
+  ],
+  "styles": {
+    "basic-style1": {
+      "style": "basic-preview/style1.json"
+    }
+  },
+  "data": {
+    "v1": {
+      "mbtiles": "zurich_switzerland.mbtiles"
+    }
+  }
+}

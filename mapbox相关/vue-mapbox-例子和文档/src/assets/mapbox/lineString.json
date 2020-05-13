@@ -1,0 +1,110 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+            "id": "1",
+            "name":"线1",
+            "desc":"这是线1"  
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              109.0228271484375,
+              34.23110622201053
+            ],
+            [
+              108.8851547241211,
+              34.23195777001729
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+            "id": "2",
+            "name":"线2",
+            "desc":"这是线2"  
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              109.02591705322266,
+              34.241040412926225
+            ],
+            [
+              108.8858413696289,
+              34.24387853788724
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+            "id": "3",
+            "name":"线3",
+            "desc":"这是线3"  
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              109.02694702148436,
+              34.250973431611484
+            ],
+            [
+              108.88618469238281,
+              34.25125721491913
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+            "id": "4",
+            "name":"线4",
+            "desc":"这是线4"  
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              109.02488708496094,
+              34.26289150646404
+            ],
+            [
+              108.88652801513672,
+              34.264310212432044
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+            "id": "5",
+            "name":"线5",
+            "desc":"这是线5"  
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              109.02145385742188,
+              34.27651009584797
+            ],
+            [
+              108.88618469238281,
+              34.27679379300553
+            ]
+          ]
+        }
+      }
+    ]
+  }

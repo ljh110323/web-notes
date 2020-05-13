@@ -1124,7 +1124,7 @@ docker run -it -p 9999:8080 tomcat /bin/bash
 3. 创建镜像
 
    ```
-   docker build -t mytomcat:1.0
+   docker build -t mytomcat:1.0 .
    ```
 
 4. 启动容器

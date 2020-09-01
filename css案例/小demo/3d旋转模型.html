@@ -1,0 +1,79 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Untitled Document</title>
+<style>
+    @keyframes demo {
+        0%{
+            transform: rotateZ(0deg) translateY(150px);
+        }
+        100%{
+            transform: rotateZ(360deg) translateY(150px);
+        }
+    }
+    .container{
+        width: 500px;
+        height: 500px;
+        margin: 50px auto;
+        border: 1px solid #aaa;
+        perspective: 1000px;
+    }
+    .box{
+        width: 100%;
+        height: 100%;
+        border: 1px solid red;
+        position: relative;
+        transform-style: preserve-3d;
+        transform: rotateY(62deg);
+    }
+    .item1{
+        width: 200px;
+        height: 200px;
+        background: blue;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -100px;
+        margin-left: -100px;
+    }
+    .item2{
+        width: 300px;
+        height: 300px;
+        background: yellow;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -150px;
+        margin-left: -150px;
+        transform: rotateX(71deg);
+        border: 2px solid #aaa;
+        border-radius: 50%;
+    }
+    .round{
+        width: 10px;
+        height: 10px;
+        background: #00ffff;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        border-radius: 50%;
+        margin-top: -5px;
+        margin-left: -5px;
+        /* transform: rotateZ(222deg) translateY(150px); */
+        animation: demo 5s linear infinite;
+    }
+</style>
+</head>
+
+<div class="container">
+    <div class="box">
+        <div class="item1"></div>
+        <div class="item2">
+            <div class="round"></div>
+        </div>
+    </div>
+</div>
+
+<body>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        .container{
+            width: 500px;
+            height: 500px;
+            border: 1px solid #aaa;
+            position: relative;
+            cursor: pointer;
+        }
+        .container .sector{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -100px;
+            margin-left: -100px;
+            width: 0px;
+            height: 0px;
+            border: 100px solid transparent;
+            border-radius: 100px;
+            
+        }
+        .container .sector span{
+            display: inline-block;
+            font-size: 16px;
+            color: #fff;
+            word-break: keep-all;
+            white-space: nowrap;
+            position: absolute;
+            bottom: -75px;
+            left: -32px;
+            letter-spacing: 2px;
+        }
+        .top-left{
+            border-bottom-color: #00E4EC !important;
+            transform: rotate(45deg);
+        } 
+        .top-right{
+            border-bottom-color: #2FA5F3 !important;
+            transform: rotate(135deg);
+            
+        }
+        .bottom-left{
+            border-bottom-color: #30C7B1 !important;
+            transform: rotate(225deg);
+
+        }
+        .bottom-right{
+            border-bottom-color: #2878FD !important;
+            transform: rotate(315deg);
+
+        }
+
+        .big-round{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -50px;
+            margin-left: -50px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #12262e;
+        }
+        .small-round{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -35px;
+            margin-left: -35px;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: yellow;
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="container">
+       <div class="sector top-left"><span>相似关联</span></div>
+       <div class="sector top-right"><span>内容关联</span></div>
+       <div class="sector bottom-left"><span>隶属关联</span></div>
+       <div class="sector bottom-right"><span>人物关联</span></div>
+       <div class="big-round"></div>    
+       <div class="small-round"></div>    
+    </div>
+</body>
+</html>

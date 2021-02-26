@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>KOA-Demo</title>
+  <script src="./lib/axios.js"></script>
+</head>
+<body>
+  <h1>KOA-DEMO</h1>
+  <div class="info">
+    
+  </div>
+  <div>
+
+  </div>
+  <script>
+    //  var config = {
+    //     headers: { 
+    //     'Accept': 'application/json', 
+    //     'Content-Type': 'application/json' 
+    //     },
+    //     method: 'POST',
+    //     body: JSON.stringify({id:'123'})
+    //   };
+    //   fetch('/getUser/row',{...config})
+    //   .then(res=>{
+    //    return res.json();
+    //   })
+    //   .then(data=>{
+    //     console.log(data);
+        
+    //   })
+
+
+      axios.interceptors.response.use(res => {
+        // console.log('响应:', res.config.url, res)
+        //返回的数据做处理
+        return res.data
+      })
+
+     /*  axios.post('/getUser/row', {
+        firstName: 'Fred',
+        lastName: 'Flintstone'
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      }); */
+
+     /*  axios.put('/getUser', {
+        firstName: '111',
+        lastName: '222'
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      }); */
+
+      /* axios.put('/getUser/555', {
+        firstName: '111',
+        lastName: '222'
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      }); */
+
+      /* axios.delete('/getUser/999')
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      }); */
+
+      axios.delete('/getUser', {params: {name:'ljh'}, body: {id:'1111'}})
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  </script>
+
+</body>
+</html>

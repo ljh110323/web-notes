@@ -1,0 +1,50 @@
+html, body{
+    text-align: center;
+}
+.views{
+    width: 500px;
+    height: 500px;
+    border: 1px solid #aaa;
+    margin: 50px auto;
+}
+.box{
+    width: 200px;
+    height: 200px;
+    background: rgb(150, 228, 113);
+    /* transform: rotate(15deg); */
+    border-radius: 50%;
+    margin: 0 auto;
+    line-height: 200px;
+}
+
+
+@keyframes rotateX {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+.rotateX{
+   animation: rotateX 2s linear infinite paused;
+}
+
+.rotateX-running{
+    animation-play-state: running;
+} 
+.rotateX-paused{
+    animation-play-state: paused;
+} 
+
+/* 
+animation:  动画的各个属性
+name: 动画名称  必需要有
+duration: 动画完成需要的时间，  默认 1s。
+timing-function: 动画曲线， 默认 ease。 linear 匀速 || ease  低-快-变低 || ease-in 低速开 || ease-out 低速结束 || ease-in-out 低-高-低 || cubic-bezier(n,n,n,n) 贝塞尔曲线
+delay: 延迟几秒开始动画，默认 0s 。
+iteration-count: 播放次数，默认1次。 n || infinite 无限次
+direction:  动画播放方向。 默认: normal。 normal 正常播放 || alternate 反向播放
+fill-mode: 动画效果播放前后是否可见，默认: none。  none 不改变默认行为 || forwards 动画完成，保持最后一帧 || backwards 动画有延迟时间时候显示的样子，在第一帧中设置 || both 
+play-state: 动画正在运行还是暂停，默认： running。  paused 暂停 || running 运行。	 
+*/
